@@ -76,6 +76,9 @@ module Services
         if segments == [127, 0, 0, 1]
           raise "#{segments.join('.')}: IP is localhost"
         end
+        if segments == [0, 0, 0, 0]
+          raise "#{segments.join('.')}: IP is a non-routable adress"
+        end
 
         segments
       end
